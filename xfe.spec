@@ -1,6 +1,6 @@
 Summary:	Yet another file browser
 Name:		xfe
-Version:	0.98
+Version:	0.99
 Release:	%mkrel 1
 License:	GPL
 Group:		File tools
@@ -59,5 +59,6 @@ install -D %{SOURCE1} %{buildroot}%{_datadir}/applications/xfe.desktop
 %{_datadir}/%{name}/icons/xfce-theme/*.png
 %{_datadir}/%{name}/icons/gnome-theme/*.png
 %{_datadir}/%{name}/icons/gnomeblue-theme/*.png
+%{_datadir}/%{name}/icons/windows-theme/*.png
 %{_mandir}/man1/*
 
