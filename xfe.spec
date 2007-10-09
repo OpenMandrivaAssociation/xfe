@@ -1,10 +1,10 @@
 Summary:	Yet another file browser
 Name:		xfe
-Version:	0.99
+Version:	1.04
 Release:	%mkrel 1
-License:	GPL
+License:	GPLv2+
 Group:		File tools
-Url:		http://roland65.free.fr/xfe/
+Url:		http://roland65.free.fr/xfe
 Source0:	http://downloads.sourceforge.net/xfe/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 BuildRequires:	libpng-devel
@@ -25,6 +25,8 @@ Xfe aims to be the file manager of choice for all light thinking Unix addicts!
 %configure2_5x \
 	--disable-rpath \
 	--enable-release \
+	--enable-threads=posix \
+	--without-included-gettext \
 	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
 	--sysconfdir=%{_sysconfdir}
@@ -49,9 +51,9 @@ install -D %{SOURCE1} %{buildroot}%{_datadir}/applications/xfe.desktop
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 %files -f %{name}.lang
-%defattr(644,root,root,755)
+%defattr(-,root,root)
 %doc AUTHORS COPYING README TODO ChangeLog
-%attr(755,root,root) %{_bindir}/xf*
+%{_bindir}/xf*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}/xferc
 %{_datadir}/applications/xfe.desktop
 %{_datadir}/pixmaps/*.png
@@ -61,4 +63,3 @@ install -D %{SOURCE1} %{buildroot}%{_datadir}/applications/xfe.desktop
 %{_datadir}/%{name}/icons/gnomeblue-theme/*.png
 %{_datadir}/%{name}/icons/windows-theme/*.png
 %{_mandir}/man1/*
-
