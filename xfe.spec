@@ -9,6 +9,7 @@ Source0:	http://downloads.sourceforge.net/xfe/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 BuildRequires:	libpng-devel
 BuildRequires:	fox1.6-devel
+BuildRequires:	libxft-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
