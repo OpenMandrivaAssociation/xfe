@@ -10,6 +10,7 @@ Source1:	%{name}.desktop
 BuildRequires:	libpng-devel
 BuildRequires:	fox1.6-devel
 BuildRequires:	libxft-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 X File Explorer (Xfe) is an MS-Explorer like file manager for X.
