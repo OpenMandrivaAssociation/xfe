@@ -53,14 +53,10 @@ install -D %{SOURCE1} %{buildroot}%{_datadir}/applications/xfe.desktop
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc AUTHORS COPYING README TODO ChangeLog
+%doc AUTHORS README TODO ChangeLog
 %{_bindir}/xf*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}/xferc
 %{_datadir}/applications/xfe.desktop
 %{_datadir}/pixmaps/*.png
-%{_datadir}/%{name}/icons/xfe-theme/*.png
-%{_datadir}/%{name}/icons/xfce-theme/*.png
-%{_datadir}/%{name}/icons/gnome-theme/*.png
-%{_datadir}/%{name}/icons/gnomeblue-theme/*.png
-%{_datadir}/%{name}/icons/windows-theme/*.png
+%{_datadir}/%{name}/icons
 %{_mandir}/man1/*
