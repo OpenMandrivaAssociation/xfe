@@ -42,11 +42,15 @@ install -D %{SOURCE1} %{buildroot}%{_datadir}/applications/xfe.desktop
 
 %find_lang %{name}
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
