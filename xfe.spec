@@ -1,6 +1,6 @@
 Summary:	Yet another file browser
 Name:		xfe
-Version:	1.19.1
+Version:	1.19.2
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		File tools
