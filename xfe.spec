@@ -1,12 +1,13 @@
 Summary:	Yet another file browser
 Name:		xfe
 Version:	1.19.2
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv2+
 Group:		File tools
 Url:		http://roland65.free.fr/xfe
 Source0:	http://downloads.sourceforge.net/xfe/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
+Patch0:		xfe-1.19.2-gcc44.patch
 BuildRequires:	libpng-devel
 BuildRequires:	fox1.6-devel
 BuildRequires:	libxft-devel
@@ -21,16 +22,14 @@ Xfe aims to be the file manager of choice for all light thinking Unix addicts!
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure2_5x \
 	--disable-rpath \
 	--enable-release \
 	--enable-threads=posix \
-	--without-included-gettext \
-	--prefix=%{_prefix} \
-	--libdir=%{_libdir} \
-	--sysconfdir=%{_sysconfdir}
+	--without-included-gettext
 
 %make
 
@@ -38,7 +37,7 @@ Xfe aims to be the file manager of choice for all light thinking Unix addicts!
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 %makeinstall_std rcdir=%{_sysconfdir}/%{name}
-install -D %{SOURCE1} %{buildroot}%{_datadir}/applications/xfe.desktop
+install -m644 -D %{SOURCE1} %{buildroot}%{_datadir}/applications/xfe.desktop
 
 %find_lang %{name}
 
