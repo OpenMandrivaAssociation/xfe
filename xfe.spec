@@ -1,7 +1,7 @@
 Summary:	Yet another file browser
 Name:		xfe
 Version:	1.19.2
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPLv2+
 Group:		File tools
 Url:		http://roland65.free.fr/xfe
