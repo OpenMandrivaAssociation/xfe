@@ -1,17 +1,17 @@
-Summary:	Yet another file browser
+Summary:	MS-Explorer-like minimalist file manager for X
 Name:		xfe
-Version:	1.19.2
-Release:	%mkrel 4
+Version:	1.32.4
+Release:	1
 License:	GPLv2+
 Group:		File tools
 Url:		http://roland65.free.fr/xfe
-Source0:	http://downloads.sourceforge.net/xfe/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/xfe/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
-Patch0:		xfe-1.19.2-gcc44.patch
+Patch0:		xfe-1.32.2-missing_Xlib_h.patch
 BuildRequires:	libpng-devel
 BuildRequires:	fox1.6-devel
 BuildRequires:	libxft-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRequires:	intltool
 
 %description
 X File Explorer (Xfe) is an MS-Explorer like file manager for X.
@@ -25,6 +25,9 @@ Xfe aims to be the file manager of choice for all light thinking Unix addicts!
 %patch0 -p0
 
 %build
+export CXXFLAGS="-O2  -I/usr/include/fox-1.6 -DHAVE_XFT_H -DSTARTUP_NOTIFICATION"
+export LDFLAGS="-lX11 -lfreetype -lz -lXft"
+
 %configure2_5x \
 	--disable-rpath \
 	--enable-release \
@@ -32,6 +35,7 @@ Xfe aims to be the file manager of choice for all light thinking Unix addicts!
 	--without-included-gettext
 
 %make
+#make
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -59,7 +63,8 @@ install -m644 -D %{SOURCE1} %{buildroot}%{_datadir}/applications/xfe.desktop
 %doc AUTHORS README TODO ChangeLog
 %{_bindir}/xf*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}/xferc
-%{_datadir}/applications/xfe.desktop
+%{_datadir}/applications/*.desktop
 %{_datadir}/pixmaps/*.png
+%{_datadir}/pixmaps/*.xpm
 %{_datadir}/%{name}/icons
 %{_mandir}/man1/*
