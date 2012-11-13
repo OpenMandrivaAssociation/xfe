@@ -1,0 +1,13 @@
+Index: xfe-1.32.5/xfp.desktop.in.in
+===================================================================
+--- xfe-1.32.5.orig/xfp.desktop.in.in
++++ xfe-1.32.5/xfp.desktop.in.in
+@@ -6,7 +6,6 @@ Exec=xfp
+ Terminal=false
+ Type=Application
+ StartupNotify=@STARTUPNOTIFY@
+-MimeType=text/plain;
+ MimeType=application/x-deb;application/x-debian-package;application/x-rpm;
+ Icon=xfp
+-Categories=Utility;PackageManager;
++Categories=Utility;Settings;PackageManager;
