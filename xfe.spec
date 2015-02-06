@@ -1,7 +1,7 @@
 Summary:	MS-Explorer-like minimalist file manager for X
 Name:		xfe
 Version:	1.32.5
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		File tools
 Url:		http://roland65.free.fr/xfe
