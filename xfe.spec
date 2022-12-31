@@ -15,6 +15,7 @@ BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-aux)
 BuildRequires:	pkgconfig(xcb-event)
 BuildRequires:	pkgconfig(x11-xcb)
+BuildRequires:	pkgconfig(fox)
 BuildRequires:	intltool
 
 %description
