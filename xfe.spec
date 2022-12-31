@@ -1,16 +1,20 @@
 Summary:	MS-Explorer-like minimalist file manager for X
 Name:		xfe
-Version:	1.32.5
-Release:	2
+Version:	1.45
+Release:	1
 License:	GPLv2+
 Group:		File tools
 Url:		http://roland65.free.fr/xfe
-Source0:	http://downloads.sourceforge.net/xfe/%{name}-%{version}.tar.gz
-Patch0:		xfe-1.32.2-missing_Xlib_h.patch
-Patch1:		xfe-1.32.5-mdv-xfp_desktop.patch
-BuildRequires:	libpng-devel
-BuildRequires:	fox1.6-devel
-BuildRequires:	libxft-devel
+Source0:	http://downloads.sourceforge.net/xfe/%{name}-%{version}.tar.xz
+BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xft)
+BuildRequires:	pkgconfig(xrandr)
+BuildRequires:	pkgconfig(freetype2)
+BuildRequires:	pkgconfig(xcb)
+BuildRequires:	pkgconfig(xcb-aux)
+BuildRequires:	pkgconfig(xcb-event)
+BuildRequires:	pkgconfig(x11-xcb)
 BuildRequires:	intltool
 
 %description
@@ -22,12 +26,10 @@ Xfe aims to be the file manager of choice for all light thinking Unix addicts!
 
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -p1
 
 %build
-export CXXFLAGS="-O2  -I/usr/include/fox-1.6 -DHAVE_XFT_H -DSTARTUP_NOTIFICATION"
-export LDFLAGS="-lX11 -lfreetype -lz -lXft"
+#export CXXFLAGS="-O2  -I/usr/include/fox-1.6 -DHAVE_XFT_H -DSTARTUP_NOTIFICATION"
+#export LDFLAGS="-lX11 -lfreetype -lz -lXft"
 
 %configure2_5x \
 	--disable-rpath \
