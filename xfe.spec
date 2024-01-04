@@ -1,6 +1,6 @@
 Summary:	MS-Explorer-like minimalist file manager for X
 Name:		xfe
-Version:	1.45
+Version:	1.46
 Release:	1
 License:	GPLv2+
 Group:		File tools
@@ -32,18 +32,18 @@ Xfe aims to be the file manager of choice for all light thinking Unix addicts!
 #export CXXFLAGS="-O2  -I/usr/include/fox-1.6 -DHAVE_XFT_H -DSTARTUP_NOTIFICATION"
 #export LDFLAGS="-lX11 -lfreetype -lz -lXft"
 
-%configure2_5x \
+%configure \
 	--disable-rpath \
 	--enable-release \
 	--enable-threads=posix \
 	--without-included-gettext
 
-%make
+%make_build
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
-%makeinstall_std rcdir=%{_sysconfdir}/%{name}
+%make_install rcdir=%{_sysconfdir}/%{name}
 
 %find_lang %{name}
 
