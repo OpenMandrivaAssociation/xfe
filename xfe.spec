@@ -4,7 +4,7 @@ Version:	1.46
 Release:	1
 License:	GPLv2+
 Group:		File tools
-Url:		http://roland65.free.fr/xfe
+Url:		https://roland65.free.fr/xfe
 Source0:	http://downloads.sourceforge.net/xfe/%{name}-%{version}.tar.xz
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(x11)
